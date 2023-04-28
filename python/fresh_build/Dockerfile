@@ -16,8 +16,6 @@ WORKDIR /usr/src/app/venv
 # Open a terminal
 RUN apk add --no-cache bash 
 
-CMD [ "executable" ]
-# Start the virtual environment
-RUN source venv/bin/activate
+
 
 

@@ -23,6 +23,7 @@ RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.r
 # Install the required packages
 RUN yum -y install \
     autoconf\
+    bzip2-devel \
     binutils \
     blas-devel \
     cmake \
@@ -86,6 +87,8 @@ RUN yum -y install \
     xz-libs \
     zlib-devel* \
 
-# Install the required python packages
+# Install the required python packages for Python 3.11. Mate desktop probably optional
 RUN yum -y groupinstall "Development Tools" --setopt=group_package_types=mandatory,default,optional
-RUN yum -y groupinstall "MATE Desktop"
+RUN yum -y groupinstall "MATE Desktop" 
+
+# Update to latest version of gcc
