@@ -10,8 +10,14 @@ WORKDIR /usr/src/app
 # Create a virtual environment
 RUN python -m venv venv
 
+# Set the working directory
+WORKDIR /usr/src/app/venv
+
+# Open a terminal
+RUN apk add --no-cache bash 
+
+CMD [ "executable" ]
 # Start the virtual environment
 RUN source venv/bin/activate
 
-# Start Python  in the virtual environment
-CMD [ "python" ]
+
